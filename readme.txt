@@ -1,5 +1,6 @@
 === WP Attachment Export ===
-Contributors: swisswp, helvetian
+Contributors: helvetian
+Donate link: http://helvetian.io/
 Tags: attachments, media library, export
 Requires at least: 3.0
 Tested up to: 4.2.2

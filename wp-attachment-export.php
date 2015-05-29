@@ -3,9 +3,10 @@
 Plugin Name: WP Attachment Export
 Plugin URI: https://wordpress.org/plugins/wp-attachment-export
 Description: Exports only posts of type 'attachment', i.e. your media library
-Version: 0.2.2
+Version: 0.2.3
 Author: Peter Harlacher
 Author URI: http://helvetian.io
+Text Domain: wp-attachment-export
 License: GPL2
 */
 
@@ -21,6 +22,15 @@ class hlvtn_WP_Attachment_Export {
 		add_action( 'admin_menu', array(&$this, 'add_admin_menu') );
 		add_action( 'wp_loaded', array(&$this, 'run_export') );
 		add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array(&$this, 'add_action_links') );
+		add_action( 'plugins_loaded', array(&$this, 'load_textdomain') );
+	}
+	
+	/**
+	 * Loads our plugin text domain
+	 * @return bool true if the language file was loaded successfully, false otherwise
+	 */
+	function load_textdomain() {
+		load_plugin_textdomain( 'wp-attachment-export', false, dirname( plugin_basename(__FILE__) ) . '/languages/' );
 	}
 	
 	/**
@@ -30,7 +40,7 @@ class hlvtn_WP_Attachment_Export {
 	 */
 	function add_action_links ( $links ) {
 		$export_link = array(
-			'<a href="' . admin_url( 'tools.php?page=wp-attachment-export' ) . '">Export</a>',
+			'<a href="'.admin_url( 'tools.php?page=wp-attachment-export' ).'">'.esc_attr__('Export', 'wp-attachment-export').'</a>',
 		);
 		return array_merge( $links, $export_link );
 	}
@@ -41,17 +51,15 @@ class hlvtn_WP_Attachment_Export {
 	function admin_screen() {
 		?>
 		<div class="wrap">
-		<h2>Attachment Export</h2>
-
-		<p><?php _e('When you click the button below WordPress will create an XML file for you to save to your computer.'); ?></p>
-		<p><?php _e('This format, which we call WordPress eXtended RSS or WXR, will contain your attachments.'); ?></p>
-		<p><?php _e('Once you&#8217;ve saved the download file, you can use the Import function in another WordPress installation to import the attachments from this site.'); ?></p>
-
-		<h3><?php _e( 'Choose what to export' ); ?></h3>
+		<h2><?php esc_attr_e( 'Attachment Export', 'wp-attachment-export' ); ?></h2>
+		<p><?php esc_attr_e( 'When you click the button below WordPress will create an XML file for you to save to your computer.', 'wp-attachment-export' ); ?></p>
+		<p><?php esc_attr_e( 'This format, which we call WordPress eXtended RSS or WXR, will contain your attachments.', 'wp-attachment-export' ); ?></p>
+		<p><?php esc_attr_e( 'Once you&#8217;ve saved the download file, you can use the Import function in another WordPress installation to import the attachments from this site.', 'wp-attachment-export' ); ?></p>
+		<h3><?php esc_attr_e( 'Choose what to export', 'wp-attachment-export' ); ?></h3>
 		<form action="" method="get" id="export-filters">
-			<p><label><input type="radio" name="content" value="attachment" checked="checked" /> <?php _e( 'Attachments' ); ?></label></p>
-			<p class="description"><?php _e( 'This will contain all of your attachments.' ); ?></p>
-			<input type="submit" value="Download Export File" class="button button-secondary">
+			<p><label><input type="radio" name="content" value="attachment" checked="checked" /> <?php esc_attr_e( 'Attachments', 'wp-attachment-export' ); ?></label></p>
+			<p class="description"><?php esc_attr_e( 'This will contain all of your attachments.', 'wp-attachment-export' ); ?></p>
+			<input type="submit" value="<?php esc_attr_e( 'Download Export File', 'wp-attachment-export' ); ?>" class="button button-secondary">
 			<input type="hidden" name="wp-attachment-export-download" value="true" />
 		</form>
 		</div>
@@ -62,7 +70,7 @@ class hlvtn_WP_Attachment_Export {
 	 * Adds a menu entry at Tools > WP Attachment Export
 	 */
 	function add_admin_menu() {
-		add_management_page( 'WP Attachment Export', 'WP Attachment Export', 'manage_options', 'wp-attachment-export', array(&$this, 'admin_screen') );
+		add_management_page( esc_attr__('WP Attachment Export', 'wp-attachment-export'), esc_attr__('WP Attachment Export', 'wp-attachment-export'), 'manage_options', 'wp-attachment-export', array(&$this, 'admin_screen') );
 	}
 	
 	/**

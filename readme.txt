@@ -26,6 +26,9 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 
 == Changelog ==
 
+= 0.2.3 =
+* Made plugin translatable
+
 = 0.2.2 =
 * Improvements related to plugin development with Git/Github
 

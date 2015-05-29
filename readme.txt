@@ -1,9 +1,9 @@
 === WP Attachment Export ===
-Contributors: swisswp
+Contributors: swisswp, helvetian
 Tags: attachments, media library, export
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 0.1.0
+Tested up to: 4.0
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,10 @@ Exports only posts of type 'attachment', i.e. your media library
 3. Export your attachments via the 'Tools > Attachment Export' menu in WordPress
 
 == Changelog ==
+
+= 0.2.0 =
+* Added LICENSE
+* Bugfixes
 
 = 0.1.0 =
 * Initial version

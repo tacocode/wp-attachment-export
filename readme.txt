@@ -12,7 +12,11 @@ Exports only posts of type 'attachment', i.e. your media library
 
 == Description ==
 
-Exports only posts of type 'attachment', i.e. your media library
+WP Attachment Export allows you to export your media library into a WordPress eXtended RSS or WXR file. You can then use the Tools->Import function in another WordPress installation to import the media library.
+
+= Issues / Bug reporting =
+
+Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp-attachment-export/issues>
 
 == Installation ==
 

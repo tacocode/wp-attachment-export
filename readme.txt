@@ -26,6 +26,9 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 
 == Changelog ==
 
+= 0.2.2 =
+* Improvements related to plugin development with Git/Github
+
 = 0.2.1 =
 * Added 'Export' link beside the activate/deactivate links on the Plugins page
 * Minor code comments

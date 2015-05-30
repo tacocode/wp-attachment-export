@@ -3,7 +3,7 @@
 Plugin Name: WP Attachment Export
 Plugin URI: https://wordpress.org/plugins/wp-attachment-export
 Description: Exports only posts of type 'attachment', i.e. your media library
-Version: 0.2.3
+Version: 0.2.4
 Author: Peter Harlacher
 Author URI: http://helvetian.io
 Text Domain: wp-attachment-export
@@ -61,6 +61,7 @@ class hlvtn_WP_Attachment_Export {
 			<p class="description"><?php esc_attr_e( 'This will contain all of your attachments.', 'wp-attachment-export' ); ?></p>
 			<input type="submit" value="<?php esc_attr_e( 'Download Export File', 'wp-attachment-export' ); ?>" class="button button-secondary">
 			<input type="hidden" name="wp-attachment-export-download" value="true" />
+			<?php wp_nonce_field( 'wp_attachment_export_download', 'wp_attachment_export_nonce' ); ?>
 		</form>
 		</div>
 		<?php
@@ -78,11 +79,15 @@ class hlvtn_WP_Attachment_Export {
 	 */
 	function run_export() {
 		if ( is_admin() && isset( $_GET['wp-attachment-export-download'] ) ) {
-			require_once(ABSPATH.'/wp-admin/includes/export.php');
-			$args = array();
-			$args['content'] = $_GET['content'];
-			export_wp( $args );
-			die();
+			if ( current_user_can( 'administrator' ) && isset($_REQUEST['wp_attachment_export_nonce']) && wp_verify_nonce( $_REQUEST['wp_attachment_export_nonce'], 'wp_attachment_export_download' ) ) {
+				require_once(ABSPATH.'/wp-admin/includes/export.php');
+				$args = array();
+				$args['content'] = $_GET['content'];
+				export_wp( $args );
+				die();
+			} else {
+				wp_nonce_ays( 'wp_attachment_export_download' );
+			}
 		}
 	}
 

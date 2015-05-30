@@ -26,6 +26,10 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 
 == Changelog ==
 
+= 0.2.4 =
+* Security bugfix (Arbitrary File Download)
+* Thanks to [Nitin Venkatesh](http://nitstorm.github.io) for reporting the issue!
+
 = 0.2.3 =
 * Made plugin translatable
 

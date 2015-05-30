@@ -3,7 +3,7 @@
   
 **Donate link:** http://helvetian.io/
   
-**Tags:** attachments, media library, export
+**Tags:** admin, export, attachments, media, image, images, xml
   
 **Requires at least:** 3.0
   

@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Attachment Export\n"
-"POT-Creation-Date: 2015-05-30 06:45+0700\n"
-"PO-Revision-Date: 2015-05-30 06:46+0700\n"
+"POT-Creation-Date: 2015-07-26 10:28+0700\n"
+"PO-Revision-Date: 2015-07-26 10:28+0700\n"
 "Last-Translator: Peter Harlacher <pm@helvetian.io>\n"
 "Language-Team: Peter Harlacher <pm@helvetian.io>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wp-attachment-export.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -20,15 +20,16 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: wp-attachment-export.php:39
+#: wp-attachment-export.php:43
 msgid "Export"
 msgstr "Export"
 
-#: wp-attachment-export.php:50
-msgid "Attachment Export"
-msgstr "Attachment Export"
+#. Plugin Name of the plugin/theme
+#: wp-attachment-export.php:54 wp-attachment-export.php:77
+msgid "WP Attachment Export"
+msgstr "WP Attachment Export"
 
-#: wp-attachment-export.php:51
+#: wp-attachment-export.php:55
 msgid ""
 "When you click the button below WordPress will create an XML file for you to "
 "save to your computer."
@@ -36,7 +37,7 @@ msgstr ""
 "When you click the button below WordPress will create an XML file for you to "
 "save to your computer."
 
-#: wp-attachment-export.php:52
+#: wp-attachment-export.php:56
 msgid ""
 "This format, which we call WordPress eXtended RSS or WXR, will contain your "
 "attachments."
@@ -44,7 +45,7 @@ msgstr ""
 "This format, which we call WordPress eXtended RSS or WXR, will contain your "
 "attachments."
 
-#: wp-attachment-export.php:53
+#: wp-attachment-export.php:57
 msgid ""
 "Once you&#8217;ve saved the download file, you can use the Import function "
 "in another WordPress installation to import the attachments from this site."
@@ -52,26 +53,33 @@ msgstr ""
 "Once you&#8217;ve saved the download file, you can use the Import function "
 "in another WordPress installation to import the attachments from this site."
 
-#: wp-attachment-export.php:54
+#: wp-attachment-export.php:58
 msgid "Choose what to export"
 msgstr "Choose what to export"
 
-#: wp-attachment-export.php:56
+#: wp-attachment-export.php:60
 msgid "Attachments"
 msgstr "Attachments"
 
-#: wp-attachment-export.php:57
+#: wp-attachment-export.php:61
 msgid "This will contain all of your attachments."
 msgstr "This will contain all of your attachments."
 
-#: wp-attachment-export.php:58
+#: wp-attachment-export.php:62
 msgid "Download Export File"
 msgstr "Download Export File"
 
-#. Plugin Name of the plugin/theme
-#: wp-attachment-export.php:69
-msgid "WP Attachment Export"
-msgstr "WP Attachment Export"
+#: wp-attachment-export.php:68
+msgid "Rate this plugin"
+msgstr "Rate this plugin"
+
+#: wp-attachment-export.php:68
+msgid "Contribute on GitHub"
+msgstr "Contribute on GitHub"
+
+#: wp-attachment-export.php:77
+msgid "Attachment Export"
+msgstr "Attachment Export"
 
 #. Plugin URI of the plugin/theme
 msgid "https://wordpress.org/plugins/wp-attachment-export"

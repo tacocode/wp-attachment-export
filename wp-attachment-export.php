@@ -3,7 +3,7 @@
 Plugin Name: WP Attachment Export
 Plugin URI: https://wordpress.org/plugins/wp-attachment-export
 Description: Exports only posts of type 'attachment', i.e. your media library
-Version: 0.2.4
+Version: 0.3
 Author: Peter Harlacher
 Author URI: http://helvetian.io
 Text Domain: wp-attachment-export
@@ -51,18 +51,21 @@ class hlvtn_WP_Attachment_Export {
 	function admin_screen() {
 		?>
 		<div class="wrap">
-		<h2><?php esc_attr_e( 'Attachment Export', 'wp-attachment-export' ); ?></h2>
-		<p><?php esc_attr_e( 'When you click the button below WordPress will create an XML file for you to save to your computer.', 'wp-attachment-export' ); ?></p>
-		<p><?php esc_attr_e( 'This format, which we call WordPress eXtended RSS or WXR, will contain your attachments.', 'wp-attachment-export' ); ?></p>
-		<p><?php esc_attr_e( 'Once you&#8217;ve saved the download file, you can use the Import function in another WordPress installation to import the attachments from this site.', 'wp-attachment-export' ); ?></p>
-		<h3><?php esc_attr_e( 'Choose what to export', 'wp-attachment-export' ); ?></h3>
-		<form action="" method="get" id="export-filters">
-			<p><label><input type="radio" name="content" value="attachment" checked="checked" /> <?php esc_attr_e( 'Attachments', 'wp-attachment-export' ); ?></label></p>
-			<p class="description"><?php esc_attr_e( 'This will contain all of your attachments.', 'wp-attachment-export' ); ?></p>
-			<input type="submit" value="<?php esc_attr_e( 'Download Export File', 'wp-attachment-export' ); ?>" class="button button-secondary">
-			<input type="hidden" name="wp-attachment-export-download" value="true" />
-			<?php wp_nonce_field( 'wp_attachment_export_download', 'wp_attachment_export_nonce' ); ?>
-		</form>
+			<h2><?php esc_attr_e( 'WP Attachment Export', 'wp-attachment-export' ); ?></h2>
+			<p><?php esc_attr_e( 'When you click the button below WordPress will create an XML file for you to save to your computer.', 'wp-attachment-export' ); ?></p>
+			<p><?php esc_attr_e( 'This format, which we call WordPress eXtended RSS or WXR, will contain your attachments.', 'wp-attachment-export' ); ?></p>
+			<p><?php esc_attr_e( 'Once you&#8217;ve saved the download file, you can use the Import function in another WordPress installation to import the attachments from this site.', 'wp-attachment-export' ); ?></p>
+			<h3><?php esc_attr_e( 'Choose what to export', 'wp-attachment-export' ); ?></h3>
+			<form action="" method="get" id="export-filters">
+				<p><label><input type="radio" name="content" value="attachment" checked="checked" /> <?php esc_attr_e( 'Attachments', 'wp-attachment-export' ); ?></label></p>
+				<p class="description"><?php esc_attr_e( 'This will contain all of your attachments.', 'wp-attachment-export' ); ?></p>
+				<input type="submit" value="<?php esc_attr_e( 'Download Export File', 'wp-attachment-export' ); ?>" class="button button-secondary">
+				<input type="hidden" name="wp-attachment-export-download" value="true" />
+				<?php wp_nonce_field( 'wp_attachment_export_download', 'wp_attachment_export_nonce' ); ?>
+			</form>
+			<p>&nbsp;</p>
+			<hr />
+			<p><small><a href="https://wordpress.org/support/view/plugin-reviews/wp-attachment-export" target="_blank"><?php esc_attr_e( 'Rate this plugin', 'wp-attachment-export' ); ?></a> &bull; <a href="https://github.com/thehelvetian/wp-attachment-export" target="_blank"><?php esc_attr_e( 'Contribute on GitHub', 'wp-attachment-export' ); ?></a></small></p>
 		</div>
 		<?php
 	}
@@ -71,7 +74,7 @@ class hlvtn_WP_Attachment_Export {
 	 * Adds a menu entry at Tools > WP Attachment Export
 	 */
 	function add_admin_menu() {
-		add_management_page( esc_attr__('WP Attachment Export', 'wp-attachment-export'), esc_attr__('WP Attachment Export', 'wp-attachment-export'), 'manage_options', 'wp-attachment-export', array(&$this, 'admin_screen') );
+		add_management_page( esc_attr__('WP Attachment Export', 'wp-attachment-export'), esc_attr__('Attachment Export', 'wp-attachment-export'), 'manage_options', 'wp-attachment-export', array(&$this, 'admin_screen') );
 	}
 	
 	/**

@@ -7,7 +7,7 @@
   
 **Requires at least:** 3.0
   
-**Tested up to:** 4.2.2
+**Tested up to:** 4.2.3
   
 **Stable tag:** trunk
   
@@ -33,6 +33,12 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 3. Navigate to 'Tools > WP Attachment Export' and click 'Download Export File' to start the export process
 
 ## Changelog ##
+
+### 0.3 ###
+* Shortened menu entry text so it stays on a single line
+* Matched title on page to plugin name
+* Added link to plugin rating page
+* Added link to GitHub repo
 
 ### 0.2.4 ###
 * Security bugfix (Arbitrary File Download)

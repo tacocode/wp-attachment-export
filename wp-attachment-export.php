@@ -44,6 +44,39 @@ class hlvtn_WP_Attachment_Export {
 		);
 		return array_merge( $links, $export_link );
 	}
+
+	/**
+	 * Create the date options fields for exporting a given post type.
+	 *
+	 * @global wpdb      $wpdb      WordPress database abstraction object.
+	 * @global WP_Locale $wp_locale Date and Time Locale object.
+	 *
+	 * @since 3.1.0
+	 *
+	 * @param string $post_type The post type. Default 'post'.
+	 */
+	function create_export_date_options( $post_type = 'post' ) {
+		global $wpdb, $wp_locale;
+
+		$months = $wpdb->get_results( $wpdb->prepare( "
+			SELECT DISTINCT YEAR( post_date ) AS year, MONTH( post_date ) AS month
+			FROM $wpdb->posts
+			WHERE post_type = %s AND post_status != 'auto-draft'
+			ORDER BY post_date DESC
+		", $post_type ) );
+
+		$month_count = count( $months );
+		if ( !$month_count || ( 1 == $month_count && 0 == $months[0]->month ) )
+			return;
+
+		foreach ( $months as $date ) {
+			if ( 0 == $date->year )
+				continue;
+
+			$month = zeroise( $date->month, 2 );
+			echo '<option value="' . $date->year . '-' . $month . '">' . $wp_locale->get_month( $month ) . ' ' . $date->year . '</option>';
+		}
+	}
 	
 	/**
 	 * Displays the admin view/screen
@@ -58,6 +91,23 @@ class hlvtn_WP_Attachment_Export {
 			<h3><?php esc_attr_e( 'Choose what to export', 'wp-attachment-export' ); ?></h3>
 			<form action="" method="get" id="export-filters">
 				<p><label><input type="radio" name="content" value="attachment" checked="checked" /> <?php esc_attr_e( 'Attachments', 'wp-attachment-export' ); ?></label></p>
+				<p><span class="label-responsive"><?php esc_attr_e( 'Authors', 'wp-attachment-export' ); ?></span>
+					<?php
+						global $wpdb;
+						$authors = $wpdb->get_col( "SELECT DISTINCT post_author FROM {$wpdb->posts} WHERE post_type = 'post'" );
+						wp_dropdown_users( array( 'include' => $authors, 'name' => 'post_author', 'multi' => true, 'show_option_all' => __('All') ) );
+					?>
+				</p>
+				<label for="attachment-start-date" class="label-responsive"><?php _e( 'Start date:' ); ?></label>
+				<select name="attachment_start_date" id="attachment-start-date">
+					<option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
+					<?php hlvtn_WP_Attachment_Export::create_export_date_options( 'attachment' ); ?>
+				</select>
+				<label for="attachment-end-date" class="label-responsive"><?php _e( 'End date:' ); ?></label>
+				<select name="attachment_end_date" id="attachment-end-date">
+					<option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
+					<?php hlvtn_WP_Attachment_Export::create_export_date_options( 'attachment' ); ?>
+				</select>
 				<p class="description"><?php esc_attr_e( 'This will contain all of your attachments.', 'wp-attachment-export' ); ?></p>
 				<input type="submit" value="<?php esc_attr_e( 'Download Export File', 'wp-attachment-export' ); ?>" class="button button-secondary">
 				<input type="hidden" name="wp-attachment-export-download" value="true" />
@@ -86,6 +136,10 @@ class hlvtn_WP_Attachment_Export {
 				require_once(ABSPATH.'/wp-admin/includes/export.php');
 				$args = array();
 				$args['content'] = $_GET['content'];
+				if ( $_GET['attachment_start_date'] || $_GET['attachment_end_date'] ) {
+					$args['start_date'] = $_GET['attachment_start_date'];
+					$args['end_date'] = $_GET['attachment_end_date'];
+				}
 				export_wp( $args );
 				die();
 			} else {

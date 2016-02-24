@@ -98,16 +98,20 @@ class hlvtn_WP_Attachment_Export {
 						wp_dropdown_users( array( 'include' => $authors, 'name' => 'post_author', 'multi' => true, 'show_option_all' => __('All') ) );
 					?>
 				</p>
-				<label for="attachment-start-date" class="label-responsive"><?php _e( 'Start date:' ); ?></label>
-				<select name="attachment_start_date" id="attachment-start-date">
-					<option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
-					<?php hlvtn_WP_Attachment_Export::create_export_date_options( 'attachment' ); ?>
-				</select>
-				<label for="attachment-end-date" class="label-responsive"><?php _e( 'End date:' ); ?></label>
-				<select name="attachment_end_date" id="attachment-end-date">
-					<option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
-					<?php hlvtn_WP_Attachment_Export::create_export_date_options( 'attachment' ); ?>
-				</select>
+				<p>
+					<label for="attachment-start-date" class="label-responsive"><?php _e( 'Start date:' ); ?></label>
+					<select name="attachment_start_date" id="attachment-start-date">
+						<option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
+						<?php self::create_export_date_options( 'attachment' ); ?>
+					</select>
+				</p>
+				<p>
+					<label for="attachment-end-date" class="label-responsive"><?php _e( 'End date:' ); ?></label>
+					<select name="attachment_end_date" id="attachment-end-date">
+						<option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
+						<?php self::create_export_date_options( 'attachment' ); ?>
+					</select>
+				</p>
 				<p class="description"><?php esc_attr_e( 'This will contain all of your attachments.', 'wp-attachment-export' ); ?></p>
 				<input type="submit" value="<?php esc_attr_e( 'Download Export File', 'wp-attachment-export' ); ?>" class="button button-secondary">
 				<input type="hidden" name="wp-attachment-export-download" value="true" />

@@ -26,6 +26,9 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 
 == Changelog ==
 
+= 0.3.1 =
+* Merged pull request from [maavuz](https://profiles.wordpress.org/maavuz). Details at <https://github.com/thehelvetian/wp-attachment-export/pull/3>
+
 = 0.3 =
 * Shortened menu entry text so it stays on a single line
 * Matched title on page to plugin name

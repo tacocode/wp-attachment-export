@@ -32,6 +32,9 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Navigate to 'Tools > WP Attachment Export' and click 'Download Export File' to start the export process
 
+### Usage ###
+User [PhiLho](https://wordpress.org/support/profile/philho) has put together a good summary on how to use the plugin at <https://wordpress.org/support/topic/good-but-could-use-more-explanations>. Thanks PhiLho!
+
 ## Changelog ##
 
 ### 0.3.1 ###
@@ -65,3 +68,6 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 
 ### 0.1.0 ###
 * Initial version
+
+## Usage ##
+User [PhiLho](https://wordpress.org/support/profile/philho) has put together a good summary on how to use the plugin at <https://wordpress.org/support/topic/good-but-could-use-more-explanations>. Thanks PhiLho!

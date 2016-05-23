@@ -3,7 +3,7 @@
 Plugin Name: WP Attachment Export
 Plugin URI: https://wordpress.org/plugins/wp-attachment-export
 Description: Exports only posts of type 'attachment', i.e. your media library
-Version: 0.3.1
+Version: 0.3.2
 Author: Peter Harlacher
 Author URI: http://helvetian.io
 Text Domain: wp-attachment-export

@@ -12,11 +12,11 @@ Exports only posts of type 'attachment', i.e. your media library
 
 == Description ==
 
-=== Note: Obsolete since WordPress 4.4 ===
+**Note: Obsolete since WordPress 4.4**
 
 [This feature has been added into the core of WordPress 4.4](https://core.trac.wordpress.org/ticket/32230). You can now export your attachments by going to Tools->Export and select 'Media' as the export type.
 
-==== Original Description ====
+**Original Description**
 
 WP Attachment Export allows you to export your media library into a WordPress eXtended RSS or WXR file. You can then use the Tools->Import function in another WordPress installation to import the media library.
 
@@ -34,6 +34,9 @@ Found a bug? Please use the issue tracker at <https://github.com/thehelvetian/wp
 User [PhiLho](https://wordpress.org/support/profile/philho) has put together a good summary on how to use the plugin at <https://wordpress.org/support/topic/good-but-could-use-more-explanations>. Thanks PhiLho!
 
 == Changelog ==
+
+= 0.3.3 =
+* Fixed readme formatting issues
 
 = 0.3.2 =
 * Added obsolete notice

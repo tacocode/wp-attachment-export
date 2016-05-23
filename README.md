@@ -44,6 +44,9 @@ User [PhiLho](https://wordpress.org/support/profile/philho) has put together a g
 
 ## Changelog ##
 
+### 0.3.3 ###
+* Fixed readme formatting issues
+
 ### 0.3.2 ###
 * Added obsolete notice
 
